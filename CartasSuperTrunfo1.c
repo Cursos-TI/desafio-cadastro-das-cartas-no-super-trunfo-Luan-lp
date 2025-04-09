@@ -57,36 +57,34 @@ void comparar_cartas(Carta carta1, Carta carta2) {
            carta1.super_poder, carta2.super_poder, (carta1.super_poder > carta2.super_poder) + 1);
 }
 
+void entrada_dados(Carta *carta, int numero) {
+    printf("\nDigite os dados da Carta %d:\n", numero);
+    
+    printf("Nome: ");
+    scanf("%s", carta->nome);
+    
+    printf("Estado: ");
+    scanf("%s", carta->estado);
+    
+    printf("População: ");
+    scanf("%lu", &carta->populacao);
+    
+    printf("Área: ");
+    scanf("%lu", &carta->area);
+    
+    printf("PIB: ");
+    scanf("%lu", &carta->pib);
+    
+    printf("Pontos Turísticos: ");
+    scanf("%lu", &carta->pontos_turisticos);
+}
+
 int main() {
     Carta carta1, carta2;
 
-    // Entrada de dados para a Carta 1
-    printf("Digite o nome da Carta 1: ");
-    scanf("%s", carta1.nome);
-    printf("Digite o estado da Carta 1: ");
-    scanf("%s", carta1.estado);
-    printf("Digite a população da Carta 1: ");
-    scanf("%lu", &carta1.populacao);
-    printf("Digite a área da Carta 1: ");
-    scanf("%lu", &carta1.area);
-    printf("Digite o PIB da Carta 1: ");
-    scanf("%lu", &carta1.pib);
-    printf("Digite o número de pontos turísticos da Carta 1: ");
-    scanf("%lu", &carta1.pontos_turisticos);
-
-    // Entrada de dados para a Carta 2
-    printf("\nDigite o nome da Carta 2: ");
-    scanf("%s", carta2.nome);
-    printf("Digite o estado da Carta 2: ");
-    scanf("%s", carta2.estado);
-    printf("Digite a população da Carta 2: ");
-    scanf("%lu", &carta2.populacao);
-    printf("Digite a área da Carta 2: ");
-    scanf("%lu", &carta2.area);
-    printf("Digite o PIB da Carta 2: ");
-    scanf("%lu", &carta2.pib);
-    printf("Digite o número de pontos turísticos da Carta 2: ");
-    scanf("%lu", &carta2.pontos_turisticos);
+    // Entrada de dados para as cartas
+    entrada_dados(&carta1, 1);
+    entrada_dados(&carta2, 2);
 
     // Calcular dados para ambas as cartas
     calcular_dados(&carta1);
